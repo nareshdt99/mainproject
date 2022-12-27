@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: create build directory
+      file:
+        path: /root/demo-dockerfile
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+    - name: copy Dockerfile
+      copy:
+        src: ./Dockerfile
+        dest: /root/demo-dockerfile/Dockerfile
+        owner: root
+        group: root
+        mode: '0644'
+    - name: Build the image on local
+      connection: local
+      docker_image:
+       name: democontainer
+       source: build
+       build:
+        path: .
+       tag: v1.0
+    - name: load container from tarball
+      docker_image:
+        name: democontainer:v1.0
+        load_path: /root/democontainer:v1.0
+        state: present
+        source: load
