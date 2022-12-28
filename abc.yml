@@ -41,6 +41,7 @@
       become: yes
       become_user: jenkins
       shell: kubectl apply -f https://raw.githubusercontent.com/nareshdt99/mainproject/main/kube-deployment.yml
+      ignore_errors: true
       args:
         chdir: $HOME
 ...
