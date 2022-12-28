@@ -1,3 +1,4 @@
+---
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -24,3 +25,4 @@ spec:
       containers:
         - name: abctechnologies
           image: nareshdt99/abctechnologies-1.0
+...
