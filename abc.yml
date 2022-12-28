@@ -30,9 +30,9 @@
        tag: latest
     - name: Log into DockerHub
       docker_login:
-       #username: nareshdt99
-       #password: 8142972264
-       #email: nareshdt99@gmail.com
+       username: nareshdt99
+       password: 8142972264
+       email: nareshdt99@gmail.com
     - name: Pull image from dockerhub repo
       docker_image:
        name: nareshdt99/abctechnologies-1.0
