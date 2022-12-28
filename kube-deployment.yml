@@ -24,10 +24,10 @@ spec:
       containers:
       - image: nareshdt99/abctechnologies-1.0
         name: app
-
 ---
-kind: Service
+#kind: Service
 apiVersion: v1
+kind: Service
 metadata:
    name: kubeserve-svc
 spec:
@@ -37,3 +37,4 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
+...
