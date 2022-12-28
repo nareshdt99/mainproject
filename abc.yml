@@ -37,6 +37,12 @@
       docker_image:
        name: nareshdt99/abctechnologies-1.0
        source: pull
+    - name: Create the container
+      docker_container:
+       name: nareshdt99/abctechnologies-1.0
+       image: nareshdt99/abctechnologies-1.0:latest
+       ports:
+        - "80:8080"
     - name: install Pod network
       become: yes
       become_user: jenkins
