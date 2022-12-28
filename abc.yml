@@ -14,7 +14,7 @@
     - name: Log into DockerHub
       docker_login:
        username: nareshdt99
-       password: ${dockerhub}
+       password: withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]){ sh 'docker login -u nareshdt99 -p ${dockerhub}}
        email: nareshdt99@gmail.com
     - name: Tag and push to docker hub on local
       docker_image:
