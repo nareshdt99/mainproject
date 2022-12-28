@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kubeserve
+  labels:
+    app: kubeserve
 spec:
   replicas: 10
   minReadySeconds: 45 # wait for 10 sec before pod is ready going to next
@@ -33,5 +35,5 @@ spec:
   selector:
     app: kubeserve
   ports:
-    - port: 80
+    - port: 8080
       targetPort: 8080
