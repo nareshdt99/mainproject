@@ -5,17 +5,17 @@
   tasks:
     - name: create build directory
       file:
-        path: /devops/demo-dockerfile
+        path: /root/demo-dockerfile
         state: directory
-        owner: devops
-        group: devops
+        owner: root
+        group: root
         mode: '0755'
     - name: copy Dockerfile
       copy:
         src: ./Dockerfile
-        dest: /devops/demo-dockerfile/Dockerfile
-        owner: devops
-        group: devops
+        dest: /root/demo-dockerfile/Dockerfile
+        owner: root
+        group: root
         mode: '0644'
     - name: Build the image on local
       connection: local
@@ -28,6 +28,6 @@
     - name: load container from tarball
       docker_image:
         name: democontainer:v1.0
-        load_path: /devops/democontainer:v1.0
+        load_path: /root/democontainer:v1.0
         state: present
         source: load
