@@ -1,0 +1,40 @@
+
+---
+- name: Build docker image & deploy on docker container
+  gather_facts: true
+  hosts: localhost
+  tasks:
+    - name: Build the image on local
+      docker_image:
+       name: arunbuee/abc-technology
+       source: build
+       build:
+        path: .
+       tag: latest
+    - name: Log into DockerHub
+      docker_login:
+       username: nareshdt99
+       password: 8142972264
+       email: nareshdt99@gmail.com
+    - name: Tag and push to docker hub on local
+      docker_image:
+       name: nareshdt99/abctechnologies-1.0
+       repository: nareshdt99/abctechnologies-1.0
+       push: yes
+       source: local
+    - name: Remove image
+      ignore_errors: yes
+      docker_image:
+       state: absent
+       name: nareshdt99/abctechnologies-1.0
+       tag: latest
+    - name: Log into DockerHub
+      docker_login:
+       username: nareshdt99
+       password: 8142972264
+       email: nareshdt99@gmail.com
+    - name: Pull image from dockerhub repo
+      docker_image:
+       name: nareshdt99/abctechnologies-1.0
+       source: pull
+...
