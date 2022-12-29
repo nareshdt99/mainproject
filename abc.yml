@@ -46,7 +46,7 @@
     - name: install Pod network
       become: yes
       become_user: jenkins
-      shell: kubectl apply -f https://raw.githubusercontent.com/nareshdt99/mainproject/main/kube-deployment.yml
+      shell: kubectl apply -f https://kubernetes-deploy.s3.ap-south-1.amazonaws.com/controller.yml
       ignore_errors: true
       args:
         chdir: $HOME
