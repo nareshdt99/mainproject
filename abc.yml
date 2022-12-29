@@ -45,7 +45,7 @@
         - "80:8070"
     - name: install Pod network
       become: yes
-      become_user: devops
+      #become_user: devops
       shell: kubectl apply -f https://kubernetes-deploy.s3.ap-south-1.amazonaws.com/controller.yml
       ignore_errors: true
       args:
