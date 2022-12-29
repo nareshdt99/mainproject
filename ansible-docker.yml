@@ -46,6 +46,8 @@
     - name: kubernetes Deployment
       become: yes
       command: kubectl apply -f https://kubernetes-deploy.s3.ap-south-1.amazonaws.com/controller.yml
+      command: kubectl get deployment
+      command: kubectl get service
       ignore_errors: true
       args:
         chdir: $HOME
