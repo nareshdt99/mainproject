@@ -6,7 +6,7 @@
   tasks:
     - name: Build the image on local
       docker_image:
-       name: arunbuee/abc-technology
+       name: nareshdt99/abctechnologies-1.0
        source: build
        build:
         path: .
