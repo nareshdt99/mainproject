@@ -42,10 +42,12 @@
        name: abctechnologies
        image: nareshdt99/abctechnologies-1.0
        ports:
-        - "80:8070"
+        - "80:8080"
     - name: install Pod network
       become: yes
-      #become_user: devops
+      become_user: devops
+         ask-pass: today@!234
+         ask-become-pass: today@1234
       shell: kubectl apply -f https://kubernetes-deploy.s3.ap-south-1.amazonaws.com/controller.yml
       ignore_errors: true
       args:
