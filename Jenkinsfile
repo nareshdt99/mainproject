@@ -41,5 +41,12 @@ pipeline {
             sh 'docker push nareshdt99/abctechnologies-1.0'  
         }                    
     }
+    stage('invoke-ansible-docker'){
+        steps {
+            sh 'echo stage2'
+            ansiblePlaybook credentialsId: 'practice', disableHostKeyChecking: true, installation: 'ansible', playbook: 'abc.yml'
+            sh 'docker ps | grep abctechnologies-1.0'
+       }
+    }
   }  
 }
