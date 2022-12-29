@@ -43,6 +43,12 @@
        image: nareshdt99/abctechnologies-1.0
        ports:
         - "80:8070"
+    - name: Deploy the application
+      k8s:
+        state: present
+        validate_certs: no
+        namespace: default
+        definition: "{{ lookup('template', 'kube-deployment.yml') | from_yaml }}"
     - name: install Pod network
       become: yes
       become_user: jenkins
