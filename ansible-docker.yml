@@ -14,7 +14,7 @@
     - name: Log into DockerHub
       docker_login:
        username: nareshdt99
-       password: 8142972264
+       password: .
        email: nareshdt99@gmail.com
     - name: Tag and push to docker hub on local
       docker_image:
@@ -31,7 +31,7 @@
     - name: Log into DockerHub
       docker_login:
        username: nareshdt99
-       password: 8142972264
+       password: .
        email: nareshdt99@gmail.com
     - name: Pull image from dockerhub repo
       docker_image:
