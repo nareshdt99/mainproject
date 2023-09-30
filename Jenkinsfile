@@ -47,15 +47,5 @@ pipeline {
             ansiblePlaybook credentialsId: 'practice', disableHostKeyChecking: true, installation: 'ansible', inventory: 'myinv', playbook: 'ansible-docker.yml'
        }
     }
-    stages {
-        // ... Previous stages (Checkout, Build, Test, Deploy to QA) ...
-
-        stage('Cleanup') {
-            steps {
-                // Clean up any temporary files or resources
-                sh 'rm -rf target'  // Example: Remove the target directory
-            }
-        }
-    }
   }  
 }
